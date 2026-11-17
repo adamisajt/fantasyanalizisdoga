@@ -25,6 +25,7 @@ namespace fantasyanalizisdoga
                     {
                         int id = reader.GetInt32("id");
                         string nev = reader.GetString("nev");
+                        //nemtudom miert nem tudom lekerdezni a veszelyessegi szintet
                         int veszelyessegiSzint = reader.GetInt32("veszelyessegi_szint");
                         string elohely = reader.GetString("elohely");
                         string foGyengeseg = reader.GetString("fo_gyengeseg");
