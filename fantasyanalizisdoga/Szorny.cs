@@ -4,7 +4,7 @@ using System.Text;
 
 namespace fantasyanalizisdoga
 {
-    internal class Szorny
+    public class Szorny
     {
         private int id;
         private string nev;
@@ -27,7 +27,7 @@ namespace fantasyanalizisdoga
 
         public int Id { get => id; }
         public string Nev { get => nev; }
-        public int VeszelyessegiSzint { get => veszelyessegiSzint;}
+        public int VeszelyessegiSzint { get => veszelyessegiSzint; }
         public string Elohely { get => elohely; }
         public string FoGyengeseg { get => foGyengeseg; }
         public string LeggyakoribbZsakmany { get => leggyakoribbZsakmany; }
