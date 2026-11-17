@@ -4,7 +4,7 @@ using System.Text;
 
 namespace fantasyanalizisdoga
 {
-    internal class Szorny
+    public class Szorny
     {
         private int id;
         private string nev;

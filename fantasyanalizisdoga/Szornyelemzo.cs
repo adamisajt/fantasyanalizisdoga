@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace fantasyanalizisdoga
 {
     internal class Szornyelemzo
     {
-        private string szornyek;
-        List<Szorny> szornyLista = new List<Szorny>();
-        public Szornyelemzo(string szornyek)
+        private readonly List<Szorny> szornyLista;
+        public Szornyelemzo(List<Szorny> szornyek)
         {
-            this.szornyek = szornyek;
+            szornyLista = szornyek;
         }
         public int OsszesSzornySzama()
         {
@@ -31,6 +31,20 @@ namespace fantasyanalizisdoga
         public IEnumerable<Szorny> LegveszelyesebbSzornyek(int topN)
         {
             return szornyLista.OrderByDescending(szorny => szorny.VeszelyessegiSzint).Take(topN);
+        }
+
+        public IEnumerable<Szorny> FeketeMocsarbanEloLegalabbOtosVeszelyessegiSzintuSzornyek()
+        {
+            return szornyLista.Where(szorny => szorny.Elohely == "FeketeMocsár" && szorny.VeszelyessegiSzint >= 5);
+        }
+        public bool VanExtremTuzGyengeSzorny()
+        {
+            return szornyLista.Any(szorny => szorny.FoGyengeseg == "Tűz" && szorny.VeszelyessegiSzint >= 8);
+        }
+        public IEnumerable<string> SzornyekSzamaElohelyenkent()
+        {
+            return szornyLista.GroupBy(szorny => szorny.Elohely)
+                             .Select(group => $"{group.Key}: {group.Count()}");
         }
 
     }
